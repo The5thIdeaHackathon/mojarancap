@@ -9,7 +9,7 @@
 int main()
 {
 	FILE *pf = NULL;
-	const char f_name[128] = "C:\\Users\\orioncra\\Downloads\\final3.txt";
+	const char f_name[128] = "C:\\final4.txt";
 	char buffer[256] = { 0 };
 	char feel_n = '0', season;
 	int p_s = 0, p_e = 0;
@@ -37,8 +37,12 @@ int main()
 		season = 'd';
 	}
 
-	printf("%c %c", rand_t, season);
+	printf("_____________________________________________________________________________________________\n");
+	printf("현재 본인이 느끼는 감정과 가장 비슷한 것은 무엇인지 골라주세요...\n");
+	printf("1.화가 난다. 2. 우울하다. 3. 슬프다. 4. 기쁘다.\n");
 	scanf("%c", &feel_n);
+	printf("그렇다면...\n");
+
 	if (feel_n >= '1' && feel_n <= '4')
 	{
 		if ((pf = fopen(f_name, "r")) == NULL)
@@ -47,10 +51,12 @@ int main()
 			exit(1);
 		}
 
+		//line check and print
 		while (fgets(buffer, 256, pf))
 		{
-			//printf("%d %d", strchr(buffer, feel_n), strchr(buffer, season));
-			//system("pause");
+			//value test
+			/*printf("%d %d", strchr(buffer, feel_n), strchr(buffer, season));
+			system("pause");*/
 			if (p_s == 1)
 			{
 				if (p_e == 1)
